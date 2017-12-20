@@ -5,22 +5,23 @@ GPIO.setmode(GPIO.BCM)
 TRIG = 23 
 ECHO = 24
 
-print "Distance Measurement In Progress"
+print "Loading Ultrasonic sensor"
 
 GPIO.setup(TRIG,GPIO.OUT)
 GPIO.setup(ECHO,GPIO.IN)
 #print "Waiting For Sensor To Settle"
 time.sleep(5)
 
-def avgDistance_front(self):
+
+def avgDistance_front():
 	avg_distance = 0.0
 	#Sum 5 distance readings
 	for n in range(5):
-		avg_distance += getdistance(self)
+		avg_distance += getdistance()
 		
 	return round(avg_distance/5.0, 2)
 	
-def getdistance(self):
+def getdistance():
 	global TRIG
 	global ECHO 
 	while True:
@@ -53,4 +54,4 @@ def getdistance(self):
 		else:
 			print "path is clear!"
 		'''
-GPIO.cleanup()
+#GPIO.cleanup()

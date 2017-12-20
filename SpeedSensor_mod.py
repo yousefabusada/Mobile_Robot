@@ -69,7 +69,7 @@ class SpeedSensor_mod(object):
 		if arrival == DistanceCounter:
 			stop()
 	
-	def setArrival(value):
+	def setArrival(self, value):
 		global arrival
 		arrival = value + DistanceCounter
 
