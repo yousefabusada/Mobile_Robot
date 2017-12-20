@@ -12,6 +12,7 @@ N				=	90 #number of slots
 R				= 	5 # diameter
 cir				= 	2*math.pi*R
 total_dis		=	0
+arrival 		= 	0
 class SpeedSensor_mod(object):
 
 
@@ -29,7 +30,7 @@ class SpeedSensor_mod(object):
 		speedCounter = speedCounter+1
 		DistanceCounter += 1
 		elapsed = time.time()-startTime
-		checkArrival()
+		self.checkArrival()
 		"""if(elapsed >= 1.0):
 			startTime = time.time()
 
@@ -63,7 +64,7 @@ class SpeedSensor_mod(object):
 		distance = (DistanceCounter - trackDistance) * (cir / N)
 		return distance
 		
-	def checkArrival():
+	def checkArrival(self):
 		global arrival
 		global DistanceCounter
 		if arrival == DistanceCounter:
